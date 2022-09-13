@@ -90,11 +90,11 @@ impl Style {
     /// Check if the current style has one of [`Styles`](Styles) switched on.
     ///
     /// ```rust
-    /// # use colored::*;
-    /// let colored = "".bold().italic();
-    /// assert_eq!(colored.style().contains(Styles::Bold), true);
-    /// assert_eq!(colored.style().contains(Styles::Italic), true);
-    /// assert_eq!(colored.style().contains(Styles::Dimmed), false);
+    /// # use painted::*;
+    /// let painted = "".bold().italic();
+    /// assert_eq!(painted.style().contains(Styles::Bold), true);
+    /// assert_eq!(painted.style().contains(Styles::Italic), true);
+    /// assert_eq!(painted.style().contains(Styles::Dimmed), false);
     /// ```
     pub fn contains(self, style: Styles) -> bool {
         let s = style.to_u8();

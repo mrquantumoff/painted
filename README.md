@@ -1,7 +1,5 @@
-# Colored
+# Painted
 
-[![Build
-Status](https://travis-ci.org/mackwic/colored.svg?branch=master)](https://travis-ci.org/mackwic/colored) [![Crates.io](https://img.shields.io/crates/v/colored.svg?maxAge=2592000)](https://crates.io/crates/colored) [![Crates.io](https://img.shields.io/crates/l/colored.svg?maxAge=2592000)](https://github.com/mackwic/colored/blob/master/LICENSE)
 
 Coloring terminal so simple, you already know how to do it!
 
@@ -31,15 +29,15 @@ Add this in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-colored = "2"
+painted = "2"
 ```
 
 and add this to your `lib.rs` or `main.rs`:
 
 ```rust
-    extern crate colored; // not needed in Rust 2018+
+    extern crate painted; // not needed in Rust 2018+
 
-    use colored::*;
+    use painted::*;
 
     // test the example with `cargo run --example most_simple`
     fn main() {
@@ -72,7 +70,7 @@ Bright Background colors: prepend the color by `on_bright_`. Not hard at all.
 
 #### Truecolors
 
-Colored has support for truecolors where you can specify any arbitrary rgb value.
+painted has support for truecolors where you can specify any arbitrary rgb value.
 
 This feature will only work correctly in terminals which support true colors (i.e. most modern terminals).
 
@@ -119,13 +117,13 @@ For example, you can do this in your `Cargo.toml` to disable color in tests:
 
 ```toml
 [features]
-# this effectively enable the feature `no-color` of colored when testing with
+# this effectively enable the feature `no-color` of painted when testing with
 # `cargo test --feature dumb_terminal`
-dumb_terminal = ["colored/no-color"]
+dumb_terminal = ["painted/no-color"]
 ```
 
 You can use have even finer control by using the
-`colored::control::set_override` method.
+`painted::control::set_override` method.
 
 ## Build with Docker
 
@@ -133,26 +131,8 @@ You can use have even finer control by using the
 
 Use the install instructions located [here](https://docs.docker.com/v17.12/install/)
 
-### Build the Docker image
-
-```docker build -t colored_image .```
-
-### Build the library
-
-```docker run --rm -it -v "$PWD":/src -u `id -u`:`id -g` colored_image /bin/bash -c "cargo build"```
-
-### Test the library
-
-```docker run --rm -it -v "$PWD":/src -u `id -u`:`id -g` colored_image /bin/bash -c "cargo test"```
-
-
-## Todo
-
-- **More tests ?**: We always welcome more tests! Please contribute!
 
 ## Credits
-
-This library wouldn't have been the same without the marvelous ruby gem [colored](https://github.com/defunkt/colored).
 
 Thanks for the [ansi\_term crate](https://github.com/ogham/rust-ansi-term) for
 providing a reference implementation, which greatly helped making this crate
@@ -161,7 +141,7 @@ output correct strings.
 ## License
 
 [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/). See the
-[LICENSE](https://github.com/mackwic/colored/blob/master/LICENSE) file at the
+[LICENSE](https://github.com/mrquantumoff/painted/blob/master/LICENSE) file at the
 root of the repository.
 
 In non legal terms it means that:
@@ -182,3 +162,4 @@ In non legal terms it means that:
 - Kyle Galloway: [@kylegalloway](https://github.com/kylegalloway)
 - Luke Hsiao: [@lukehsiao](https://github.com/lukehsiao)
 - kurtlawrence: [@kurtlawrence](https://github.com/kurtlawrence)
+- Demir Yerli : [@mrquantumoff](https://github.com/mrquantumoff)

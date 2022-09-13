@@ -1,6 +1,6 @@
 //!Coloring terminal so simple, you already know how to do it !
 //!
-//!    use colored::Colorize;
+//!    use painted::Colorize;
 //!
 //!    "this is blue".blue();
 //!    "this is red".red();
@@ -51,7 +51,7 @@ pub use style::{Style, Styles};
 
 /// A string that may have color and/or style applied to it.
 #[derive(Clone, Debug, PartialEq, Eq)]
-pub struct ColoredString {
+pub struct paintedString {
     input: String,
     fgcolor: Option<Color>,
     bgcolor: Option<Color>,
@@ -60,126 +60,126 @@ pub struct ColoredString {
 
 /// The trait that enables something to be given color.
 ///
-/// You can use `colored` effectively simply by importing this trait
+/// You can use `painted` effectively simply by importing this trait
 /// and then using its methods on `String` and `&str`.
 #[allow(missing_docs)]
 pub trait Colorize {
     // Font Colors
-    fn black(self) -> ColoredString
+    fn black(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::Black)
     }
-    fn red(self) -> ColoredString
+    fn red(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::Red)
     }
-    fn green(self) -> ColoredString
+    fn green(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::Green)
     }
-    fn yellow(self) -> ColoredString
+    fn yellow(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::Yellow)
     }
-    fn blue(self) -> ColoredString
+    fn blue(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::Blue)
     }
-    fn magenta(self) -> ColoredString
+    fn magenta(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::Magenta)
     }
-    fn purple(self) -> ColoredString
+    fn purple(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::Magenta)
     }
-    fn cyan(self) -> ColoredString
+    fn cyan(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::Cyan)
     }
-    fn white(self) -> ColoredString
+    fn white(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::White)
     }
-    fn bright_black(self) -> ColoredString
+    fn bright_black(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightBlack)
     }
-    fn bright_red(self) -> ColoredString
+    fn bright_red(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightRed)
     }
-    fn bright_green(self) -> ColoredString
+    fn bright_green(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightGreen)
     }
-    fn bright_yellow(self) -> ColoredString
+    fn bright_yellow(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightYellow)
     }
-    fn bright_blue(self) -> ColoredString
+    fn bright_blue(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightBlue)
     }
-    fn bright_magenta(self) -> ColoredString
+    fn bright_magenta(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightMagenta)
     }
-    fn bright_purple(self) -> ColoredString
+    fn bright_purple(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightMagenta)
     }
-    fn bright_cyan(self) -> ColoredString
+    fn bright_cyan(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightCyan)
     }
-    fn bright_white(self) -> ColoredString
+    fn bright_white(self) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::BrightWhite)
     }
-    fn truecolor(self, r: u8, g: u8, b: u8) -> ColoredString
+    fn truecolor(self, r: u8, g: u8, b: u8) -> paintedString
     where
         Self: Sized,
     {
         self.color(Color::TrueColor { r, g, b })
     }
-    fn custom_color(self, color: CustomColor) -> ColoredString
+    fn custom_color(self, color: CustomColor) -> paintedString
     where
         Self: Sized,
     {
@@ -189,123 +189,123 @@ pub trait Colorize {
             b: color.b,
         })
     }
-    fn color<S: Into<Color>>(self, color: S) -> ColoredString;
+    fn color<S: Into<Color>>(self, color: S) -> paintedString;
     // Background Colors
-    fn on_black(self) -> ColoredString
+    fn on_black(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::Black)
     }
-    fn on_red(self) -> ColoredString
+    fn on_red(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::Red)
     }
-    fn on_green(self) -> ColoredString
+    fn on_green(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::Green)
     }
-    fn on_yellow(self) -> ColoredString
+    fn on_yellow(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::Yellow)
     }
-    fn on_blue(self) -> ColoredString
+    fn on_blue(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::Blue)
     }
-    fn on_magenta(self) -> ColoredString
+    fn on_magenta(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::Magenta)
     }
-    fn on_purple(self) -> ColoredString
+    fn on_purple(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::Magenta)
     }
-    fn on_cyan(self) -> ColoredString
+    fn on_cyan(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::Cyan)
     }
-    fn on_white(self) -> ColoredString
+    fn on_white(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::White)
     }
-    fn on_bright_black(self) -> ColoredString
+    fn on_bright_black(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightBlack)
     }
-    fn on_bright_red(self) -> ColoredString
+    fn on_bright_red(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightRed)
     }
-    fn on_bright_green(self) -> ColoredString
+    fn on_bright_green(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightGreen)
     }
-    fn on_bright_yellow(self) -> ColoredString
+    fn on_bright_yellow(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightYellow)
     }
-    fn on_bright_blue(self) -> ColoredString
+    fn on_bright_blue(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightBlue)
     }
-    fn on_bright_magenta(self) -> ColoredString
+    fn on_bright_magenta(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightMagenta)
     }
-    fn on_bright_purple(self) -> ColoredString
+    fn on_bright_purple(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightMagenta)
     }
-    fn on_bright_cyan(self) -> ColoredString
+    fn on_bright_cyan(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightCyan)
     }
-    fn on_bright_white(self) -> ColoredString
+    fn on_bright_white(self) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::BrightWhite)
     }
-    fn on_truecolor(self, r: u8, g: u8, b: u8) -> ColoredString
+    fn on_truecolor(self, r: u8, g: u8, b: u8) -> paintedString
     where
         Self: Sized,
     {
         self.on_color(Color::TrueColor { r, g, b })
     }
-    fn on_custom_color(self, color: CustomColor) -> ColoredString
+    fn on_custom_color(self, color: CustomColor) -> paintedString
     where
         Self: Sized,
     {
@@ -315,29 +315,29 @@ pub trait Colorize {
             b: color.b,
         })
     }
-    fn on_color<S: Into<Color>>(self, color: S) -> ColoredString;
+    fn on_color<S: Into<Color>>(self, color: S) -> paintedString;
     // Styles
-    fn clear(self) -> ColoredString;
-    fn normal(self) -> ColoredString;
-    fn bold(self) -> ColoredString;
-    fn dimmed(self) -> ColoredString;
-    fn italic(self) -> ColoredString;
-    fn underline(self) -> ColoredString;
-    fn blink(self) -> ColoredString;
+    fn clear(self) -> paintedString;
+    fn normal(self) -> paintedString;
+    fn bold(self) -> paintedString;
+    fn dimmed(self) -> paintedString;
+    fn italic(self) -> paintedString;
+    fn underline(self) -> paintedString;
+    fn blink(self) -> paintedString;
     /// Historical name of `Colorize::reversed`. May be removed in a future version. Please use
     /// `Colorize::reversed` instead
-    fn reverse(self) -> ColoredString;
+    fn reverse(self) -> paintedString;
     /// This should be preferred to `Colorize::reverse`.
-    fn reversed(self) -> ColoredString;
-    fn hidden(self) -> ColoredString;
-    fn strikethrough(self) -> ColoredString;
+    fn reversed(self) -> paintedString;
+    fn hidden(self) -> paintedString;
+    fn strikethrough(self) -> paintedString;
 }
 
-impl ColoredString {
+impl paintedString {
     /// Get the current background color applied.
     ///
     /// ```rust
-    /// # use colored::*;
+    /// # use painted::*;
     /// let cstr = "".blue();
     /// assert_eq!(cstr.fgcolor(), Some(Color::Blue));
     /// let cstr = cstr.clear();
@@ -350,7 +350,7 @@ impl ColoredString {
     /// Get the current background color applied.
     ///
     /// ```rust
-    /// # use colored::*;
+    /// # use painted::*;
     /// let cstr = "".on_blue();
     /// assert_eq!(cstr.bgcolor(), Some(Color::Blue));
     /// let cstr = cstr.clear();
@@ -363,20 +363,20 @@ impl ColoredString {
     /// Get the current [`Style`] which can be check if it contains a [`Styles`].
     ///
     /// ```rust
-    /// # use colored::*;
-    /// let colored = "".bold().italic();
-    /// assert_eq!(colored.style().contains(Styles::Bold), true);
-    /// assert_eq!(colored.style().contains(Styles::Italic), true);
-    /// assert_eq!(colored.style().contains(Styles::Dimmed), false);
+    /// # use painted::*;
+    /// let painted = "".bold().italic();
+    /// assert_eq!(painted.style().contains(Styles::Bold), true);
+    /// assert_eq!(painted.style().contains(Styles::Italic), true);
+    /// assert_eq!(painted.style().contains(Styles::Dimmed), false);
     /// ```
     pub fn style(&self) -> style::Style {
         self.style
     }
 
-    /// Checks if the colored string has no color or styling.
+    /// Checks if the painted string has no color or styling.
     ///
     /// ```rust
-    /// # use colored::*;
+    /// # use painted::*;
     /// let cstr = "".red();
     /// assert_eq!(cstr.is_plain(), false);
     /// let cstr = cstr.clear();
@@ -465,9 +465,9 @@ impl ColoredString {
     }
 }
 
-impl Default for ColoredString {
+impl Default for paintedString {
     fn default() -> Self {
-        ColoredString {
+        paintedString {
             input: String::default(),
             fgcolor: None,
             bgcolor: None,
@@ -476,141 +476,141 @@ impl Default for ColoredString {
     }
 }
 
-impl Deref for ColoredString {
+impl Deref for paintedString {
     type Target = str;
     fn deref(&self) -> &str {
         &self.input
     }
 }
 
-impl<'a> From<&'a str> for ColoredString {
+impl<'a> From<&'a str> for paintedString {
     fn from(s: &'a str) -> Self {
-        ColoredString {
+        paintedString {
             input: String::from(s),
-            ..ColoredString::default()
+            ..paintedString::default()
         }
     }
 }
 
-impl Colorize for ColoredString {
-    fn color<S: Into<Color>>(mut self, color: S) -> ColoredString {
+impl Colorize for paintedString {
+    fn color<S: Into<Color>>(mut self, color: S) -> paintedString {
         self.fgcolor = Some(color.into());
         self
     }
-    fn on_color<S: Into<Color>>(mut self, color: S) -> ColoredString {
+    fn on_color<S: Into<Color>>(mut self, color: S) -> paintedString {
         self.bgcolor = Some(color.into());
         self
     }
 
-    fn clear(self) -> ColoredString {
-        ColoredString {
+    fn clear(self) -> paintedString {
+        paintedString {
             input: self.input,
-            ..ColoredString::default()
+            ..paintedString::default()
         }
     }
-    fn normal(self) -> ColoredString {
+    fn normal(self) -> paintedString {
         self.clear()
     }
-    fn bold(mut self) -> ColoredString {
+    fn bold(mut self) -> paintedString {
         self.style.add(style::Styles::Bold);
         self
     }
-    fn dimmed(mut self) -> ColoredString {
+    fn dimmed(mut self) -> paintedString {
         self.style.add(style::Styles::Dimmed);
         self
     }
-    fn italic(mut self) -> ColoredString {
+    fn italic(mut self) -> paintedString {
         self.style.add(style::Styles::Italic);
         self
     }
-    fn underline(mut self) -> ColoredString {
+    fn underline(mut self) -> paintedString {
         self.style.add(style::Styles::Underline);
         self
     }
-    fn blink(mut self) -> ColoredString {
+    fn blink(mut self) -> paintedString {
         self.style.add(style::Styles::Blink);
         self
     }
-    fn reverse(self) -> ColoredString {
+    fn reverse(self) -> paintedString {
         self.reversed()
     }
-    fn reversed(mut self) -> ColoredString {
+    fn reversed(mut self) -> paintedString {
         self.style.add(style::Styles::Reversed);
         self
     }
-    fn hidden(mut self) -> ColoredString {
+    fn hidden(mut self) -> paintedString {
         self.style.add(style::Styles::Hidden);
         self
     }
-    fn strikethrough(mut self) -> ColoredString {
+    fn strikethrough(mut self) -> paintedString {
         self.style.add(style::Styles::Strikethrough);
         self
     }
 }
 
 impl<'a> Colorize for &'a str {
-    fn color<S: Into<Color>>(self, color: S) -> ColoredString {
-        ColoredString {
+    fn color<S: Into<Color>>(self, color: S) -> paintedString {
+        paintedString {
             fgcolor: Some(color.into()),
             input: String::from(self),
-            ..ColoredString::default()
+            ..paintedString::default()
         }
     }
 
-    fn on_color<S: Into<Color>>(self, color: S) -> ColoredString {
-        ColoredString {
+    fn on_color<S: Into<Color>>(self, color: S) -> paintedString {
+        paintedString {
             bgcolor: Some(color.into()),
             input: String::from(self),
-            ..ColoredString::default()
+            ..paintedString::default()
         }
     }
 
-    fn clear(self) -> ColoredString {
-        ColoredString {
+    fn clear(self) -> paintedString {
+        paintedString {
             input: String::from(self),
             style: style::CLEAR,
-            ..ColoredString::default()
+            ..paintedString::default()
         }
     }
-    fn normal(self) -> ColoredString {
+    fn normal(self) -> paintedString {
         self.clear()
     }
-    fn bold(self) -> ColoredString {
-        ColoredString::from(self).bold()
+    fn bold(self) -> paintedString {
+        paintedString::from(self).bold()
     }
-    fn dimmed(self) -> ColoredString {
-        ColoredString::from(self).dimmed()
+    fn dimmed(self) -> paintedString {
+        paintedString::from(self).dimmed()
     }
-    fn italic(self) -> ColoredString {
-        ColoredString::from(self).italic()
+    fn italic(self) -> paintedString {
+        paintedString::from(self).italic()
     }
-    fn underline(self) -> ColoredString {
-        ColoredString::from(self).underline()
+    fn underline(self) -> paintedString {
+        paintedString::from(self).underline()
     }
-    fn blink(self) -> ColoredString {
-        ColoredString::from(self).blink()
+    fn blink(self) -> paintedString {
+        paintedString::from(self).blink()
     }
-    fn reverse(self) -> ColoredString {
+    fn reverse(self) -> paintedString {
         self.reversed()
     }
-    fn reversed(self) -> ColoredString {
-        ColoredString::from(self).reversed()
+    fn reversed(self) -> paintedString {
+        paintedString::from(self).reversed()
     }
-    fn hidden(self) -> ColoredString {
-        ColoredString::from(self).hidden()
+    fn hidden(self) -> paintedString {
+        paintedString::from(self).hidden()
     }
-    fn strikethrough(self) -> ColoredString {
-        ColoredString::from(self).strikethrough()
+    fn strikethrough(self) -> paintedString {
+        paintedString::from(self).strikethrough()
     }
 }
 
-impl fmt::Display for ColoredString {
+impl fmt::Display for paintedString {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         if !self.has_colors() || self.is_plain() {
             return <String as fmt::Display>::fmt(&self.input, f);
         }
 
-        // XXX: see tests. Useful when nesting colored strings
+        // XXX: see tests. Useful when nesting painted strings
         let escaped_input = self.escape_inner_reset_sequences();
 
         f.write_str(&self.compute_style())?;
@@ -762,7 +762,7 @@ mod tests {
 
     #[test]
     fn escape_reset_sequence_spec_should_do_nothing_on_empty_strings() {
-        let style = ColoredString::default();
+        let style = paintedString::default();
         let expected = String::new();
 
         let output = style.escape_inner_reset_sequences();
@@ -772,9 +772,9 @@ mod tests {
 
     #[test]
     fn escape_reset_sequence_spec_should_do_nothing_on_string_with_no_reset() {
-        let style = ColoredString {
+        let style = paintedString {
             input: String::from("hello world !"),
-            ..ColoredString::default()
+            ..paintedString::default()
         };
 
         let expected = String::from("hello world !");

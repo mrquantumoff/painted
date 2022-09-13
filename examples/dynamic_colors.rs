@@ -1,5 +1,5 @@
-extern crate colored;
-use colored::*;
+extern crate painted;
+use painted::*;
 
 fn main() {
     // the easy way

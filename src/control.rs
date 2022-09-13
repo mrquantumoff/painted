@@ -17,7 +17,7 @@ use std::sync::atomic::{AtomicBool, Ordering};
 ///
 /// # Example
 /// ```rust
-/// use colored::*;
+/// use painted::*;
 /// control::set_virtual_terminal(false).unwrap();
 /// println!("{}", "bright cyan".bright_cyan());	// will print '[96mbright cyan[0m' on windows 10
 ///
@@ -69,7 +69,7 @@ pub struct ShouldColorize {
     manual_override: AtomicBool,
 }
 
-/// Use this to force colored to ignore the environment and always/never colorize
+/// Use this to force painted to ignore the environment and always/never colorize
 /// See example/control.rs
 pub fn set_override(override_colorize: bool) {
     SHOULD_COLORIZE.set_override(override_colorize)
@@ -127,7 +127,7 @@ impl ShouldColorize {
         self.clicolor
     }
 
-    /// Use this to force colored to ignore the environment and always/never colorize
+    /// Use this to force painted to ignore the environment and always/never colorize
     pub fn set_override(&self, override_colorize: bool) {
         self.has_manual_override.store(true, Ordering::Relaxed);
         self.manual_override

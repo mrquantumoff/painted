@@ -1,12 +1,12 @@
 [package]
-name = "colored"
-description = "The most simple way to add colors in your terminal"
-version = "2.0.0"
+name = "painted"
+description = "Colored reborn (altough I won't maintain it much as I only need to publish a new version of colored)"
+version = "1.0.0"
 edition = "2021"
-authors = ["Thomas Wickham <mackwic@gmail.com>"]
+authors = ["Demir Yerli <mrquantumoff@protonmail.com>","Thomas Wickham <mackwic@gmail.com>"]
 license = "MPL-2.0"
-homepage = "https://github.com/mackwic/colored"
-repository = "https://github.com/mackwic/colored"
+homepage = "https://github.com/mrquantumoff/painted"
+repository = "https://github.com/mrquantumoff/painted"
 readme = "README.md"
 keywords = ["color", "string", "term", "ansi_term", "term-painter"]
 

@@ -1,9 +1,9 @@
-extern crate colored;
+extern crate painted;
 
-use colored::*;
+use painted::*;
 
 /*
- * This example use colored strings in a nested way (at line 14). It shows that colored is able to
+ * This example use painted strings in a nested way (at line 14). It shows that painted is able to
  * keep the correct color on the “!lalalala” part.
  */
 

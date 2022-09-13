@@ -1,6 +1,6 @@
-extern crate colored;
+extern crate painted;
 
-use colored::*;
+use painted::*;
 
 fn main() {
     // TADAA !

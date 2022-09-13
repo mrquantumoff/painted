@@ -2,18 +2,18 @@
 #![allow(unused_imports)]
 
 extern crate ansi_term;
-extern crate colored;
+extern crate painted;
 
 use ansi_term::*;
-use colored::*;
+use painted::*;
 
 macro_rules! test_simple_color {
-    ($string:expr, $colored_name:ident, $ansi_term_name:ident) => {
+    ($string:expr, $painted_name:ident, $ansi_term_name:ident) => {
         #[test]
-        fn $colored_name() {
-            let s = format!("{} {}", $string, stringify!($colored_name));
+        fn $painted_name() {
+            let s = format!("{} {}", $string, stringify!($painted_name));
             assert_eq!(
-                s.$colored_name().to_string(),
+                s.$painted_name().to_string(),
                 Colour::$ansi_term_name.paint(s).to_string()
             )
         }
@@ -22,7 +22,7 @@ macro_rules! test_simple_color {
 
 mod compat_colors {
     use super::ansi_term::*;
-    use super::colored::*;
+    use super::painted::*;
 
     test_simple_color!("test string", black, Black);
     test_simple_color!("test string", red, Red);
@@ -50,8 +50,8 @@ macro_rules! test_simple_style {
 mod compat_styles {
     use super::ansi_term;
     use super::ansi_term::*;
-    use super::colored;
-    use super::colored::*;
+    use super::painted;
+    use super::painted::*;
 
     test_simple_style!("test string", bold);
     test_simple_style!("test string", dimmed);
@@ -63,12 +63,12 @@ mod compat_styles {
 }
 
 macro_rules! test_simple_bgcolor {
-    ($string:expr, $colored_name:ident, $ansi_term_name:ident) => {
+    ($string:expr, $painted_name:ident, $ansi_term_name:ident) => {
         #[test]
-        fn $colored_name() {
-            let s = format!("{} {}", $string, stringify!($colored_name));
+        fn $painted_name() {
+            let s = format!("{} {}", $string, stringify!($painted_name));
             assert_eq!(
-                s.$colored_name().to_string(),
+                s.$painted_name().to_string(),
                 ansi_term::Style::default()
                     .on(ansi_term::Colour::$ansi_term_name)
                     .paint(s)
@@ -81,8 +81,8 @@ macro_rules! test_simple_bgcolor {
 mod compat_bgcolors {
     use super::ansi_term;
     use super::ansi_term::*;
-    use super::colored;
-    use super::colored::*;
+    use super::painted;
+    use super::painted::*;
 
     test_simple_bgcolor!("test string", on_black, Black);
     test_simple_bgcolor!("test string", on_red, Red);
@@ -97,8 +97,8 @@ mod compat_bgcolors {
 mod compat_complex {
     use super::ansi_term;
     use super::ansi_term::*;
-    use super::colored;
-    use super::colored::*;
+    use super::painted;
+    use super::painted::*;
 
     #[test]
     fn complex1() {
@@ -124,8 +124,8 @@ mod compat_complex {
 mod compat_overrides {
     use super::ansi_term;
     use super::ansi_term::*;
-    use super::colored;
-    use super::colored::*;
+    use super::painted;
+    use super::painted::*;
 
     #[test]
     fn overrides1() {
