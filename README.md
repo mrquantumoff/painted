@@ -4,6 +4,9 @@
 Coloring terminal so simple, you already know how to do it!
 
 ```rust
+
+    let myawesomecolor = CustomColor::new(0,255,41);
+
     "this is blue".blue();
     "this is red".red();
     "this is red on blue".red().on_blue();
@@ -18,6 +21,7 @@ Coloring terminal so simple, you already know how to do it!
     "purple and magenta are the same".purple().magenta();
     "and so are normal and clear".normal().clear();
     "you can specify color by string".color("blue").on_color("red");
+    "Wow this is a custom color palette!".custom_color(myawesomecolor);
     String::from("this also works!").green().bold();
     format!("{:30}", "format works as expected. This will be padded".blue());
     format!("{:.3}", "and this will be green but truncated to 3 chars".green());
@@ -29,7 +33,7 @@ Add this in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-painted = "2"
+painted = "1"
 ```
 
 and add this to your `lib.rs` or `main.rs`:
@@ -124,12 +128,6 @@ dumb_terminal = ["painted/no-color"]
 
 You can use have even finer control by using the
 `painted::control::set_override` method.
-
-## Build with Docker
-
-### Install Docker
-
-Use the install instructions located [here](https://docs.docker.com/v17.12/install/)
 
 
 ## Credits
